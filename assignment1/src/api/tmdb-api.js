@@ -1,34 +1,72 @@
+// export const getMovies = () => {
+//   return fetch(
+//     `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
+    
+//     ).then((response) => {
+//     if (!response.ok) {
+//       throw new Error(response.json().message);
+//     }
+//     return response.json();
+//   })
+//   .catch((error) => {
+//      throw error
+//   });
+// };
+
 export const getMovies = () => {
   return fetch(
-    `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
-    
-    ).then((response) => {
-    if (!response.ok) {
-      throw new Error(response.json().message);
+     '/api/movies',{headers: {
+       'Authorization': window.localStorage.getItem('token')
     }
-    return response.json();
-  })
-  .catch((error) => {
-     throw error
-  });
+  }
+  ).then(res => res.json());
+};
+
+export const login = (username, password) => {
+  return fetch('/api/users', {
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      method: 'post',
+      body: JSON.stringify({ username: username, password: password })
+  }).then(res => res.json())
+};
+
+export const signup = (username, password) => {
+  return fetch('/api/users?action=register', {
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      method: 'post',
+      body: JSON.stringify({ username: username, password: password })
+  }).then(res => res.json())
 };
 
 
 ////////////
+// export const getUpcomingMovies = () => {
+//   return fetch(
+//     //`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
+//     `http://localhost:8080/api/movies/tmdb/upcoming`
+//     //'https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1'
+//    ).then((response) => {
+//     if (!response.ok) {
+//       throw new Error(response.json().message);
+//     }
+//     return response.json();
+//   })
+//   .catch((error) => {
+//      throw error
+//   });
+// };
+
 export const getUpcomingMovies = () => {
   return fetch(
-    //`https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
-    `http://localhost:8080/api/movies/tmdb/upcoming`
-    //'https://api.themoviedb.org/3/movie/upcoming?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&page=1'
-   ).then((response) => {
-    if (!response.ok) {
-      throw new Error(response.json().message);
+     '/api/movies/tmdb/upcoming',{headers: {
+       'Authorization': window.localStorage.getItem('token')
     }
-    return response.json();
-  })
-  .catch((error) => {
-     throw error
-  });
+  }
+  ).then(res => res.json());
 };
 
 
@@ -64,6 +102,15 @@ export const getPopularMovies = () => {
   });
 };
 
+// export const getPopularMovies = () => {
+//   return fetch(
+//      '/api/movies/tmdb/popular',{headers: {
+//        'Authorization': window.localStorage.getItem('token')
+//     }
+//   }
+//   ).then(res => res.json());
+// };
+
 export const getTopRatedMovies = () => {
   return fetch(
     `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB_KEY}&language=en-US&include_adult=false&include_video=false&page=1`
@@ -79,6 +126,15 @@ export const getTopRatedMovies = () => {
      throw error
   });
 };
+
+// export const getTopRatedMovies = () => {
+//   return fetch(
+//      '/api/movies/tmdb/top_rated',{headers: {
+//        'Authorization': window.localStorage.getItem('token')
+//     }
+//   }
+//   ).then(res => res.json());
+// };
 ///////////
   
 export const getMovie = (args) => {
@@ -139,6 +195,17 @@ export const getActor = (args) => {
    });
   };
   
+  
+  // export const getGenres = () => {
+  //   return fetch(
+  //      '/api/genres',{headers: {
+  //        'Authorization': window.localStorage.getItem('token')
+  //     }
+  //   }
+  //   ).then(res => res.json());
+  // };
+
+
   export const getMovieImages = ({ queryKey }) => {
     const [, idPart] = queryKey;
     const { id } = idPart;

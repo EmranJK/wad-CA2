@@ -1,6 +1,15 @@
 import {
     getUpcomingMovies
   } from '../tmdb-api';
+  import {
+    getPopularMovies
+  } from '../tmdb-api';
+  import {
+    getNowPlayingMovies
+  } from '../tmdb-api';
+  import {
+    getTopRatedMovies
+  } from '../tmdb-api';
 import express from 'express';
 import { movies, movieReviews, movieDetails } from './moviesData';
 import uniqid from 'uniqid';
@@ -71,6 +80,21 @@ router.post('/:id/reviews', (req, res) => {
 router.get('/tmdb/upcoming', asyncHandler( async(req, res) => {
     const upcomingMovies = await getUpcomingMovies();
     res.status(200).json(upcomingMovies);
+  }));
+
+  router.get('/tmdb/popular', asyncHandler( async(req, res) => {
+    const popularMovies = await getPopularMovies();
+    res.status(200).json(popularMovies);
+  }));
+
+  router.get('/tmdb/now_playing', asyncHandler( async(req, res) => {
+    const nowPlayingMovies = await getNowPlayingMovies();
+    res.status(200).json(nowPlayingMovies);
+  }));
+
+  router.get('/tmdb/top_rated', asyncHandler( async(req, res) => {
+    const topRatedMovies = await getTopRatedMovies();
+    res.status(200).json(topRatedMovies);
   }));
 
 
