@@ -188,31 +188,31 @@ export const getActor = (args) => {
 };
 ///////
   
-  export const getGenres = async () => {
-    return fetch(
-      "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
-        process.env.REACT_APP_TMDB_KEY +
-        "&language=en-US"
-    ).then( (response) => {
-      if (!response.ok) {
-        throw new Error(response.json().message);
-      }
-      return response.json();
-    })
-    .catch((error) => {
-      throw error
-   });
-  };
-  
-  
-  // export const getGenres = () => {
+  // export const getGenres = async () => {
   //   return fetch(
-  //      '/api/genres',{headers: {
-  //        'Authorization': window.localStorage.getItem('token')
+  //     "https://api.themoviedb.org/3/genre/movie/list?api_key=" +
+  //       process.env.REACT_APP_TMDB_KEY +
+  //       "&language=en-US"
+  //   ).then( (response) => {
+  //     if (!response.ok) {
+  //       throw new Error(response.json().message);
   //     }
-  //   }
-  //   ).then(res => res.json());
+  //     return response.json();
+  //   })
+  //   .catch((error) => {
+  //     throw error
+  //  });
   // };
+  
+  
+  export const getGenres = () => {
+    return fetch(
+       '/api/genres',{headers: {
+         'Authorization': window.localStorage.getItem('token')
+      }
+    }
+    ).then(res => res.json());
+  };
 
 
   export const getMovieImages = ({ queryKey }) => {

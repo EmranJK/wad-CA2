@@ -22,6 +22,7 @@ import FavoriteMoviesPage from "./pages/favoriteMoviesPage";
 import WatchListPage from "./pages/watchListPage";
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools'
+import SignUpPage from "./auth//signUpPage";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -55,6 +56,7 @@ const App = () => {
 
         <Route path="/actor/:id" component={ActorPage} />
         <Route path="/login" component={LoginPage} />
+        <Route path="/signup" component={SignUpPage} />
 
         <Route exact path="/" component={HomePage} />
         

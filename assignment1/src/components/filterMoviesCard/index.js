@@ -40,7 +40,7 @@ export default function FilterMoviesCard(props) {
   if (isError) {
     return <h1>{error.message}</h1>;
   }
-  const genres = data.genres;
+  const genres = data.results;
   genres.unshift({ id: "0", name: "All" });
 
   const rating = ['All', 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
