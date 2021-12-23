@@ -79,22 +79,46 @@ router.post('/:id/reviews', (req, res) => {
 
 router.get('/tmdb/upcoming', asyncHandler( async(req, res) => {
     const upcomingMovies = await getUpcomingMovies();
+    if(upcomingMovies)
     res.status(200).json(upcomingMovies);
+    else{
+      res.status(404).json({
+        message: 'The resource you requested could not be found.',
+        status_code: 404
+    });}
   }));
 
   router.get('/tmdb/popular', asyncHandler( async(req, res) => {
     const popularMovies = await getPopularMovies();
+    if(popularMovies)
     res.status(200).json(popularMovies);
+    else{
+      res.status(404).json({
+        message: 'The resource you requested could not be found.',
+        status_code: 404
+    });}
   }));
 
   router.get('/tmdb/now_playing', asyncHandler( async(req, res) => {
     const nowPlayingMovies = await getNowPlayingMovies();
+    if(nowPlayingMovies)
     res.status(200).json(nowPlayingMovies);
+    else{
+      res.status(404).json({
+        message: 'The resource you requested could not be found.',
+        status_code: 404
+    });}
   }));
 
   router.get('/tmdb/top_rated', asyncHandler( async(req, res) => {
     const topRatedMovies = await getTopRatedMovies();
+    if(topRatedMovies)
     res.status(200).json(topRatedMovies);
+    else{
+      res.status(404).json({
+        message: 'The resource you requested could not be found.',
+        status_code: 404
+    });}
   }));
 
 
