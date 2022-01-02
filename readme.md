@@ -99,6 +99,7 @@ An overview of my web API design:
 | /tmdb/top_rated (NEW API ROUTE) | Gets a list of top_rated movies | N/A | N/A | N/A 
 | /api/users | Gets a list of user IDs, usernames, hashed passwords, there favourites and __v | Registers a new user and hashed password, Authenticates a user | N/A | N/A
 | /api/users/:id | N/A | N/A | Modifies a user | N/A
+| /api/users/:userName/favourites | Gets user favourits | Post favourites | N/A | N/A
 | /api/genres/ | Gets a list of genres | N/A | N/A | N/A
 
 
