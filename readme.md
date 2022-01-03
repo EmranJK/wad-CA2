@@ -94,9 +94,9 @@ An overview of my web API design:
 | /api/movies/{movieid} | Get a Movie | N/A | N/A | N/A
 | /api/movies/{movieid}/reviews | Get all reviews for movie | Create a new review for Movie | N/A | N/A  
 | /tmdb/upcoming | Gets a list of upcoming movies | N/A | N/A | N/A
-| /tmdb/popular (NEW API ROUTE) | Gets a list of popular movies | N/A | N/A | N/A 
-| /tmdb/now_playing (NEW API ROUTE) | Gets a list of now_playing movies | N/A | N/A | N/A 
-| /tmdb/top_rated (NEW API ROUTE) | Gets a list of top_rated movies | N/A | N/A | N/A 
+| /api/movies/tmdb/popular (NEW API ROUTE) | Gets a list of popular movies | N/A | N/A | N/A 
+| /api/movies/tmdb/now_playing (NEW API ROUTE) | Gets a list of now_playing movies | N/A | N/A | N/A 
+| /api/movies/tmdb/top_rated (NEW API ROUTE) | Gets a list of top_rated movies | N/A | N/A | N/A 
 | /api/users | Gets a list of user IDs, usernames, hashed passwords, there favourites and __v | Registers a new user and hashed password, Authenticates a user | N/A | N/A
 | /api/users/:id | N/A | N/A | Modifies a user | N/A
 | /api/users/:userName/favourites | Gets user favourits | Post favourites | N/A | N/A
