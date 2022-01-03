@@ -93,7 +93,7 @@ An overview of my web API design:
 | /api/movies |Gets a list of movies | N/A | N/A |
 | /api/movies/{movieid} | Get a Movie | N/A | N/A | N/A
 | /api/movies/{movieid}/reviews | Get all reviews for movie | Create a new review for Movie | N/A | N/A  
-| /tmdb/upcoming | Gets a list of upcoming movies | N/A | N/A | N/A
+| /api/movies/tmdb/upcoming | Gets a list of upcoming movies | N/A | N/A | N/A
 | /api/movies/tmdb/popular (NEW API ROUTE) | Gets a list of popular movies | N/A | N/A | N/A 
 | /api/movies/tmdb/now_playing (NEW API ROUTE) | Gets a list of now_playing movies | N/A | N/A | N/A 
 | /api/movies/tmdb/top_rated (NEW API ROUTE) | Gets a list of top_rated movies | N/A | N/A | N/A 
